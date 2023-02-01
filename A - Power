@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Main{
-    public static void power1(int a, int b) {   //O(n)    Constraints : all positve numbers input
+    public static void power1(int a, int b) {   //O(n)    Constraints : all positve numbers input    1≤A,B≤9
         int pow=1;
         for(int i=1;i<=b;i++){
             pow*=a;      
