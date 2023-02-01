@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+
+    if(b==2*a || b==2*a+1) cout<<"Yes";     //if(b/2 ==a) cout<<"Yes"; //even this will work alone
+    else cout<<"No";
+    return 0;
+}
+
+
+LOGIC : Consider all the numbers in a line 1,2,3,4,5,6,7,8,9,11,12,13,14,15
+And now se ethem in a tree.
+Observe that if the parent is a then, the child are either 2a or 2a+1.
+b=2a or b=2a+1
+=> a=b/2 or a=(b-1)/2
+
+
+Link - https://atcoder.jp/contests/abc285/tasks/abc285_a
