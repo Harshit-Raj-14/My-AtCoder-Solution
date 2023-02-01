@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class Main{
+    public static void power1(int a, int b) {   //O(n)    Constraints : all positve numbers input
+        int pow=1;
+        for(int i=1;i<=b;i++){
+            pow*=a;      
+        }
+        System.out.println(pow);       
+    }
+
+    public static void power2(int a, int b){    //O(1)
+        System.out.println((int)Math.pow(a,b)); //Note return type of Math.pow is double, so you need to typecast it to int
+    }
+
+    public static int power3(int a, int b){     //O(n)
+        if(b==0) return 1;
+        else return a*power3(a,b-1);
+    }
+
+    public static int power4(int a, int b){     //O(logn)
+        if(b==0) return 1;
+        int y=power4(a,b/2);
+        if(b%2==0) return y*y;
+        else return a*power4(a,b-1);
+    }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int a;
+        a = sc.nextInt();   
+        int b;
+        b = sc.nextInt();  
+
+        int pow = power4(a,b);
+        System.out.println(pow);
+
+        sc.close();
+    }
+}
+
+
+Link - https://atcoder.jp/contests/abc283/tasks/abc283_a
