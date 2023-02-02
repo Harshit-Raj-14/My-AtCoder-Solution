@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class Main {
+    public static int power4(int a, int b){     //O(logn)
+        if(b==0) return 1;
+        int y=power4(a,b/2);
+        if(b%2==0) return y*y;
+        else return a*power4(a,b-1);
+    }
+    
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+
+        int ans= power4(2,n);
+        System.out.println(ans);
+        
+        sc.close();
+    } 
+}
+
+
+
+link - https://atcoder.jp/contests/abc256/tasks/abc256_a
