@@ -1,0 +1,37 @@
+import java.util.*;
+
+public class Main {
+    public static void Solution(int arr[][], int a, int b){  //condition of sharing sides with another sqaure : ∣a−c∣+∣b−d∣=1  So, a,b is given and c,d are going to be our variables.
+        int count =0;
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+                if(Math.abs(a-(i+1))+Math.abs(b-(j+1))==1) count++;     //Note that int the example a and b are indexed from 1
+            }
+        }
+        System.out.println(count);
+    }
+    
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int r=sc.nextInt();
+        int c=sc.nextInt();
+        int a=sc.nextInt();
+        int b=sc.nextInt();
+
+        int arr[][]=new int[r][c];
+        Solution(arr,a,b);
+        
+        sc.close();
+    } 
+}
+
+
+// LOGIC: The grid numbers can be considered addresses of that grid (r,c); see the explained example
+condition of sharing sides with another sqaure : ∣a−c∣+∣b−d∣=1  So, a,b is given and c,d are going to be our variables. it is given in the question itself. 
+you can remember it as well like a side will be shared when diffenece in abscissa and ordinate equals one.
+Thing to note form the example is that a and b starts from 1 index and not 0.
+so manage it in the question for i and j loops.
+
+
+
+link - https://atcoder.jp/contests/abc250/tasks/abc250_a
