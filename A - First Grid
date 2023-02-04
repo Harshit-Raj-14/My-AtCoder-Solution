@@ -1,0 +1,80 @@
+/* FIRST ATTEMPT JAVA SOLUTION - can be written more small and elegantly (done below) */
+
+import java.util.*;
+
+public class Main {
+    public static void Solution(String s1, String s2){ 
+        int count=0;
+        for(int i=0;i<s1.length();i++){
+            if(s1.charAt(i)=='#') count++;
+        }
+
+        for(int i=0;i<s2.length();i++){
+            if(s2.charAt(i)=='#') count++;
+        }
+
+        if(count>2) System.out.println("Yes");
+
+        else{
+            if(s1.indexOf("#")==0 & s2.indexOf("#")==1 || s1.indexOf("#")==1 & s2.indexOf("#")==0) System.out.println("No");
+            else System.out.println("Yes");
+        }       
+    }
+    
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        String s1=sc.nextLine();
+        String s2=sc.nextLine();
+
+        Solution(s1,s2);
+        
+        sc.close();
+    } 
+}
+
+/*
+LOGIC : Don't be intimidated by the language of the question. the final meaning coems down to is tha tthat input itself resembles the grid.
+# for black square where it has been written
+. for whie square where it has been written
+Also given there are at least two black squares and S1 and S2 have only two char
+Now to check whether we can travel from every black square to every other black square 
+
+Possibilities imagine : more than 2 black 
+.#
+##
+No matter how you put it it we will always be able to travel from one back to any other
+
+So, the real work is to find the possibility when only two black
+Case I : the # are adjacent -> not possible traversal
+CaseII: the # are adjacent -> traversal possible
+
+We have solved the problem
+ */
+
+
+
+////////////////////////////////
+the answer is No for only two cases below:
+Copy
+Case I:
+.#  
+#.  
+
+CaseII:
+#.
+.#
+
+Therefore, receive two strings and implement conditional branches with if statement using string comparison, you will be accepted for this problem.
+    #include<bits/stdc++.h>
+    using namespace std;
+    int main(){
+      string s1,s2;
+      cin >> s1 >> s2;
+      if(s1=="#." && s2==".#"){cout << "No\n";}
+      else if(s1==".#" && s2=="#."){cout << "No\n";}
+      else{cout << "Yes\n";}
+      return 0;
+    }
+
+
+link - https://atcoder.jp/contests/abc229/tasks/abc229_a
