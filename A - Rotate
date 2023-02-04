@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class Main {
+    public static void Solution(int n){     //given nis three digit number with no zeroes. Makes things easy for us
+        int a=n%10;
+        n/=10;
+        int b=n%10;
+        int c= n/10;
+        //Case I : abc
+        int abc = 100*a+10*b+c;
+        //Case II : bca
+        int bca = 100*b+10*c+a;
+        //Case III : cab
+        int cab = 100*c+10*a+b;
+
+        System.out.println(abc+bca+cab);   
+         
+    }
+    
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+
+        Solution(n);
+        
+        sc.close();
+    } 
+}
+
+
+
+
+link - https://atcoder.jp/contests/abc235/tasks/abc235_a
