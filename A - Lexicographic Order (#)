@@ -1,0 +1,86 @@
+import java.util.*;
+
+public class Main {
+    public static void Solution(String s, String t){ 
+        int n=Math.min(s.length(),t.length());
+        int flag=-1;
+        for(int i=0;i<n;i++){
+            if(s.charAt(i)!=t.charAt(i)){   //we only check ofr first point of difference
+                if(s.charAt(i)>t.charAt(i)) flag=0; 
+                else flag=1;
+                break;
+            }
+        }
+        if(flag==1) System.out.println("Yes");
+        else if(flag==0) System.out.println("No");
+        else{   //in case there is no point of difference till n iterations
+            if(s.length()>t.length()) System.out.println("No");
+            else System.out.println("Yes");
+        }     
+    }
+    
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        String s=sc.next();
+        String t=sc.next();
+
+        Solution(s,t);
+        
+        sc.close();
+    } 
+}
+
+/*
+LOGIC : If S is lexicographically smaller than T, then print Yes 
+otherwise, print No.
+the lexicographical order is the order in which words are listed in a dictionary.
+check the process of lexicography in atcoder problem it is good. We have follwoed the algorithm mentionend in it to the letter
+
+
+We need to check for this condition in case:
+abcd>abc these cases need to be evaluated as well as No.
+
+ */
+ 
+ 
+ 
+    C++
+
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    int main() {
+      string S, T;
+      cin >> S >> T;
+      cout << (S < T ? "Yes" : "No") << endl;
+    }
+
+
+JAVA
+import java.util.*;
+
+public class Main {
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        String s=sc.next();
+        String t=sc.next();
+
+        int value = t.compareTo(s);
+        if(value>=0) System.out.println("Yes");
+        else System.out.println("No");
+    } 
+}
+
+/*
+int compareTo(String str) :
+
+It returns the following values:
+
+    if (string1 > string2) it returns a positive value.
+    if both the strings are equal lexicographically i.e.(string1 == string2) it returns 0.
+    if (string1 < string2) it returns a negative value.
+    */
+
+
+link - https://atcoder.jp/contests/abc217/tasks/abc217_a
