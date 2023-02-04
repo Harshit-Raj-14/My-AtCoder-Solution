@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Main {
+    public static void Solution(double a, double b){     
+        //we are just calculating dicount where MP-a and SP-b
+        double discount = (a-b)*100/a;      //but this going to be a big msitake here becase / operator will convert even decimal solutions to int, that's why we made a and b double
+
+        System.out.println(discount);
+          
+    }
+    
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        double a=sc.nextDouble();
+        double b=sc.nextDouble();
+
+        Solution(a,b);
+        
+        sc.close();
+    } 
+}
+
+
+link - https://atcoder.jp/contests/abc193/tasks/abc193_a
+
+
