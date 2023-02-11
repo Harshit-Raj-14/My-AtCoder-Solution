@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        String s=sc.next();
+        char[] arr = s.toCharArray();
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]=='0') arr[i]='1';
+            else arr[i]='0';
+        }
+        System.out.println(arr);
+    } 
+}
+
+
+//Note : we cannot directly change a specific position in string sinc ethey are immutable and can only be accessed. so change them into array of chars.
+
+link - https://atcoder.jp/contests/abc289/tasks/abc289_a
