@@ -1,0 +1,51 @@
+/* C++ SOLUTION */
+    #include<bits/stdc++.h>
+    using namespace std;
+    //using ull = unsigned long long;
+    int main() {
+        unsigned long long ans = 0;     //ull ans = 0;
+        for (int i = 0; i < 64; i++) {
+            unsigned long long a;
+            cin >> a;
+            ans += a << i;
+        }
+        cout <<ans;
+    }
+
+NOTE - the implementation will be concise if you use the bit shift operator. 
+LEFT SHIFT OPERATOR
+x<<0 : x*1 == x*(2^0)
+x<<1 : x*2 == x*(2^1)
+x<<2 : x*2*2 == x*(2^2)
+and so on.
+Note that a signed 64-bit integer (like long long in C++) is not suitable for this problem, because it can represent only up to 263−1. so, there is one less digit than required. Same for long in java
+(Instead, use an unsigned 64-bit integer like unsigned long long in C++ or a bigint in java)
+Prefer to do this question in C++.
+Java solution can become complext because long is always signed in java so there is one less number avaialble to handle all test cases
+
+
+
+
+
+/* WRONG SOLUTION these tricks won't work */
+import java.util.*;
+class Main{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        long ans=0;
+        long multiplier=1;
+        for(int i=0;i<64;i++){
+            long a = sc.nextInt();
+            ans+=a*multiplier;
+            multiplier *= 2;
+        }
+        System.out.println(ans);
+    }
+}
+
+NOTE - 
+long doesn't work, double doens't work, math.pow doesn't work, decimal formatting for double doesn't work
+please see other's soltuion
+this one is aprtially correct only
+
+
