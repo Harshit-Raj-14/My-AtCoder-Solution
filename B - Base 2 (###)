@@ -18,10 +18,17 @@ x<<0 : x*1 == x*(2^0)
 x<<1 : x*2 == x*(2^1)
 x<<2 : x*2*2 == x*(2^2)
 and so on.
-Note that a signed 64-bit integer (like long long in C++) is not suitable for this problem, because it can represent only up to 263−1. so, there is one less digit than required. Same for long in java
+Note that a signed 64-bit integer (like long long in C++) is not suitable for this problem, because it can represent only up to 2^63−1. so, there is one less digit than required. Same for long in java
 (Instead, use an unsigned 64-bit integer like unsigned long long in C++ or a bigint in java)
 Prefer to do this question in C++.
-Java solution can become complext because long is always signed in java so there is one less number avaialble to handle all test cases
+Java solution can become complext because long is always signed in java so there is one less number avaialble to handle all test cases.
+Understanding the ranges:
+2^0 + 2^1 + 2^2 + .... + 2^63 = 2^64 -1
+int range is 2^31 -1 => 4bytes
+long long int range is 2^63 -1 => 8bytes
+unsigned long long int range is 2(2^63 -1) => 8 bytes => no overflow
+other data types which could have handled it are long double
+Another method can be to use Strign then you have no limits. 
 
 
 
@@ -45,7 +52,14 @@ class Main{
 
 NOTE - 
 long doesn't work, double doens't work, math.pow doesn't work, decimal formatting for double doesn't work
-please see other's soltuion
-this one is aprtially correct only
+please see other's solution
+this one is partially correct only
+
+
+
+/// USING BRAINS ///
+On careful observation the 64 digit of 0's and 1's is actually the binary representation of A.
+In the above solution we directly evaluated what was given to us.
+First break the question into smaller multiplications and addition and after each step reconvert them into strong and then again do the calculation till answer is reached.
 
 
