@@ -12,3 +12,55 @@ no. -> f(i)
 f(1)<f(3)<f(2), so 1,3, and 2 should be printed in this order.
 So, based on ascending order -> 1,3,2 ==> o/p
 
+
+
+
+/* O(n^2) TIME LIMIT EXCEEDED */
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int nums[] = new int[3*n+1];
+        for(int i=1;i<nums.length;i++){
+            nums[i]=sc.nextInt();
+        }
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i=1;i<nums.length;i++){
+            if(map.containsKey(nums[i])) continue;
+            else{
+                int count=0; 
+                for(int j=1;j<nums.length;j++){
+                    if(nums[i]==nums[j]){
+                        count++;
+                        if(count==2) map.put(nums[i], j);
+                    }
+                }
+            }
+        }
+        //Now all we need to do is sort the map according to the value and print the key
+        List<Map.Entry<Integer, Integer>> entryList = new ArrayList<>(map.entrySet());
+        // Sort the list using a custom Comparator based on values
+        Collections.sort(entryList, new Comparator<Map.Entry<Integer, Integer>>() {
+            @Override
+            public int compare(Map.Entry<Integer, Integer> entry1, Map.Entry<Integer, Integer> entry2) {
+                return entry1.getValue().compareTo(entry2.getValue());
+            }
+        });
+        // Create a new LinkedHashMap to store the sorted entries
+        LinkedHashMap<Integer, Integer> sortedHashMap = new LinkedHashMap<>();
+        // Populate the sortedHashMap with sorted entries
+        for (Map.Entry<Integer, Integer> entry : entryList) {
+            sortedHashMap.put(entry.getKey(), entry.getValue());
+        }
+        // Print the sortedHashMap keys
+        for (Map.Entry<Integer, Integer> entry : sortedHashMap.entrySet()) {
+            System.out.print(entry.getKey() + " ");
+        }
+        sc.close();
+    }
+}
+
+LOGIC - we take the array and make a hashmap with array eleemnt as key and the middle occurence idnex value as value.
+Now sort the hashmap as per value and print the key.
+
