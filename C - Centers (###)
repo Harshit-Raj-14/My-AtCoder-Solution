@@ -1,3 +1,26 @@
+/* O(n) */
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int nums[] = new int[3*n];
+        for(int i=0;i<nums.length;i++){
+            nums[i]=sc.nextInt();
+        }
+        int count[] = new int[n+1];
+        for(int i=0;i<nums.length;i++){
+            count[nums[i]]++;
+            if(count[nums[i]]==2)  System.out.print(nums[i]+" ");
+        }
+        sc.close();
+    }
+}
+
+LOGIC ---
+we start storing the occurence frequency in count array and once they become 2 we print it. 
+This way by doing things at the same go, we don't worry about getting whose middle index is reached first and we already get presorted order.
+
 UNDERSTANDING THE QUESTION
 The question talks about a sequenc eof length 3n and so each number in it repeats 3 times.
 f(i) is the representation of the index of the middle occurnece of a number in the sequence.
